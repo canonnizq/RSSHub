@@ -13045,6 +13045,139 @@ export default {
     "url": "eleduck.com",
     "lang": "zh-CN"
   },
+  "everia": {
+    "routes": {
+      "/": {
+        "path": "/",
+        "categories": [
+          "picture"
+        ],
+        "example": "/everia",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "everia.club/"
+            ],
+            "target": ""
+          }
+        ],
+        "name": "Latest",
+        "maintainers": [
+          "KTachibanaM",
+          "AiraNadih"
+        ],
+        "location": "latest.ts",
+        "module": () => import('@/routes/everia/latest.ts')
+      },
+      "/search/:keyword": {
+        "path": "/search/:keyword",
+        "categories": [
+          "picture"
+        ],
+        "example": "/everia/search/日向坂46",
+        "parameters": {
+          "keyword": "Keyword"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "name": "Search",
+        "maintainers": [
+          "KTachibanaM",
+          "AiraNadih"
+        ],
+        "location": "search.ts",
+        "module": () => import('@/routes/everia/search.ts')
+      },
+      "/category/:category": {
+        "path": "/category/:category",
+        "categories": [
+          "picture"
+        ],
+        "example": "/everia/category/cosplay",
+        "parameters": {
+          "category": "Category of the image stream"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "everia.club/category/:category"
+            ],
+            "target": "/category/:category"
+          }
+        ],
+        "name": "Images with category",
+        "maintainers": [
+          "KTachibanaM",
+          "AiraNadih"
+        ],
+        "location": "category.ts",
+        "module": () => import('@/routes/everia/category.ts')
+      },
+      "/tag/:tag": {
+        "path": "/tag/:tag",
+        "categories": [
+          "picture"
+        ],
+        "example": "/everia/tag/hinatazaka46-日向坂46",
+        "parameters": {
+          "tag": "Tag of the image stream"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "everia.club/tag/:tag"
+            ],
+            "target": "/tag/:tag"
+          }
+        ],
+        "name": "Images with tag",
+        "maintainers": [
+          "KTachibanaM",
+          "AiraNadih"
+        ],
+        "location": "tag.ts",
+        "module": () => import('@/routes/everia/tag.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "EVERIA.CLUB",
+    "url": "everia.club"
+  },
   "fantia": {
     "routes": {
       "/search/:type?/:caty?/:period?/:order?/:rating?/:keyword?": {
@@ -18024,6 +18157,65 @@ export default {
     "lang": "zh-CN",
     "description": "FoodTalks 全球食品资讯网是一个提供食品饮料行业新闻、资讯、分析和商业资源的领先在线平台。它涵盖行业趋势、市场动态、产品创新、投融资信息以及企业新闻，连接行业内的专业人士、企业和消费者。"
   },
+  "gamebase": {
+    "routes": {
+      "/news/:type?/:category?": {
+        "path": "/news/:type?/:category?",
+        "name": "新聞",
+        "url": "news.gamebase.com.tw",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/gamebase/news",
+        "parameters": {
+          "type": "類型，見下表，預設為 newslist",
+          "category": "分類，預設為 `all`，即全部，可在對應分類頁 URL 中找到"
+        },
+        "description": "::: tip\n若訂閱 [手機遊戲新聞](https://news.gamebase.com.tw/news/newslist?type=mobile)，網址為 `https://news.gamebase.com.tw/news/newslist?type=mobile`，請截取 `https://news.gamebase.com.tw/news/` 到末尾的部分 `newslist` 作為 `type` 參數填入，`mobile` 作為 `category` 參數填入，此時目標路由為 [`/gamebase/news/newslist/mobile`](https://rsshub.app/gamebase/news/newslist/mobile)。\n:::\n\n| newslist | r18list |\n| -------- | ------- |",
+        "categories": [
+          "game"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "news.gamebase.com.tw/news",
+              "news.gamebase.com.tw/news/:type"
+            ]
+          }
+        ],
+        "view": 0,
+        "zh": {
+          "path": "/news/:type?/:category?",
+          "name": "新闻",
+          "url": "news.gamebase.com.tw",
+          "maintainers": [
+            "nczitzk"
+          ],
+          "example": "/gamebase/news",
+          "parameters": {
+            "type": "类型，见下表，默认为 newslist",
+            "category": "分类，默认为 `all`，即全部，可在对应分类页 URL 中找到"
+          },
+          "description": "::: tip\n若订阅 [手机游戏新闻](https://news.gamebase.com.tw/news/newslist?type=mobile)，网址为 `https://news.gamebase.com.tw/news/newslist?type=mobile`，请截取 `https://news.gamebase.com.tw/news/` 到末尾的部分 `newslist` 作为 `type` 参数填入，`mobile` 作为 `category` 参数填入，此时目标路由为 [`/gamebase/news/newslist/mobile`](https://rsshub.app/gamebase/news/newslist/mobile)。\n:::\n\n| newslist | r18list |\n| -------- | ------- |"
+        },
+        "location": "news.tsx",
+        "module": () => import('@/routes/gamebase/news.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "遊戲基地 Gamebase",
+    "url": "news.gamebase.com.tw",
+    "lang": "zh-TW"
+  },
   "gettr": {
     "routes": {
       "/user/:id": {
@@ -20338,7 +20530,7 @@ export default {
         "radar": [
           {
             "source": [
-              "www.shanghaimuseum.net/mu/frontend/pg/infomation/news"
+              "www.shanghaimuseum.cn/mu/frontend/pg/infomation/news"
             ],
             "target": "/information/news"
           }
@@ -20362,7 +20554,7 @@ export default {
         "radar": [
           {
             "source": [
-              "www.shanghaimuseum.net/mu/frontend/pg/display/offline-exhibit"
+              "www.shanghaimuseum.cn/mu/frontend/pg/display/offline-exhibit"
             ],
             "target": "/display/offline-exhibit"
           }
@@ -20373,7 +20565,7 @@ export default {
     },
     "apiRoutes": {},
     "name": "Shanghai Museum",
-    "url": "www.shanghaimuseum.net",
+    "url": "www.shanghaimuseum.cn",
     "zh": {
       "name": "上海博物馆"
     }
@@ -20676,40 +20868,6 @@ export default {
     "apiRoutes": {},
     "name": "听听 FM",
     "url": "mobile.tingtingfm.com",
-    "lang": "zh-CN"
-  },
-  "toutiao": {
-    "routes": {
-      "/user/token/:token": {
-        "path": "/user/token/:token",
-        "categories": [
-          "new-media"
-        ],
-        "example": "/toutiao/user/token/MS4wLjABAAAApOspM7AnWqplD9FIBGnhJRfUjFT_msD1KZMfNPBZa-c",
-        "parameters": {
-          "token": "用户 token，可在用户主页 URL 找到"
-        },
-        "features": {
-          "antiCrawler": true
-        },
-        "radar": [
-          {
-            "source": [
-              "www.toutiao.com/c/user/token/:token"
-            ]
-          }
-        ],
-        "name": "头条主页",
-        "maintainers": [
-          "TonyRL"
-        ],
-        "location": "user.tsx",
-        "module": () => import('@/routes/toutiao/user.tsx')
-      }
-    },
-    "apiRoutes": {},
-    "name": "今日头条",
-    "url": "www.toutiao.com",
     "lang": "zh-CN"
   },
   "tqyb": {
@@ -28236,53 +28394,6 @@ export default {
     "url": "19lou.com",
     "lang": "zh-CN"
   },
-  "1lou": {
-    "routes": {
-      "/:params{.+}?": {
-        "path": "/:params{.+}?",
-        "name": "通用",
-        "url": "1lou.me",
-        "maintainers": [
-          "falling",
-          "nczitzk"
-        ],
-        "example": "/1lou/forum-2-1",
-        "parameters": {
-          "params": "路径参数，可以在对应页面的 URL 中找到"
-        },
-        "description": "::: tip\n`1lou.me/` 后的内容填入 params 参数，以下是几个例子：\n\n若订阅 [大陆电视剧](https://www.1lou.me/forum-2-1.htm?tagids=0_97_0_0)，网址为 `https://www.1lou.me/forum-2-1.htm?tagids=0_97_0_0`。截取 `https://www.1lou.me/` 到末尾 `.htm` 的部分 `forum-2-1` 作为参数，并补充 `tagids`，此时路由为 [`/1lou/forum-2-1?tagids=0_97_0_0`](https://rsshub.app/1lou/forum-2-1?tagids=0_97_0_0)。\n\n若订阅 [最新发帖电视剧](https://www.1lou.me/forum-2-1.htm?orderby=tid\\&digest=0)，网址为 `https://www.1lou.me/forum-2-1.htm?orderby=tid&digest=0`。截取 `https://www.1lou.me/` 到末尾 `.htm` 的部分 `forum-2-1` 作为参数，并补充 `orderby`，此时路由为 [`/1lou/forum-2-1?orderby=tid`](https://rsshub.app/1lou/forum-2-1?orderby=tid)。\n\n若订阅 [搜素繁花主题贴](https://www.1lou.me/search-_E7_B9_81_E8_8A_B1-1.htm)，网址为 `https://www.1lou.me/search-_E7_B9_81_E8_8A_B1-1.htm`。截取 `https://www.1lou.me/` 到末尾 `.htm` 的部分 `search-_E7_B9_81_E8_8A_B1-1` 作为参数，此时路由为 [`/1lou/search-_E7_B9_81_E8_8A_B1-1`](https://rsshub.app/1lou/search-_E7_B9_81_E8_8A_B1-1)。\n:::",
-        "categories": [
-          "multimedia"
-        ],
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportRadar": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "1lou.me/:params"
-            ]
-          }
-        ],
-        "location": "index.ts",
-        "module": () => import('@/routes/1lou/index.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "BT 之家 1LOU 站",
-    "url": "1lou.me",
-    "categories": [
-      "multimedia"
-    ],
-    "description": "",
-    "lang": "zh-CN"
-  },
   "1point3acres": {
     "routes": {
       "/user/:id/posts": {
@@ -31031,6 +31142,35 @@ export default {
     "name": "91porn",
     "url": "91porn.com",
     "description": "::: tip\n91porn has multiple backup domains, routes use the permanent domain `https://91porn.com` by default. If the domain is not accessible, you can add `?domain=<domain>` to specify the domain to be used. If you want to specify the backup domain to `https://0122.91p30.com`, you can add `?domain=0122.91p30.com` to the end of all 91porn routes, then the route will become [`/91porn?domain=0122.91p30.com`](https://rsshub.app/91porn?domain=0122.91p30.com)\n:::",
+    "lang": "zh-CN"
+  },
+  "98zhibo": {
+    "routes": {
+      "/zuqiujijin": {
+        "path": "/zuqiujijin",
+        "categories": [
+          "sport"
+        ],
+        "example": "/98zhibo/zuqiujijin",
+        "name": "足球集锦",
+        "maintainers": [
+          "chouj"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.98zhibo.com/zuqiujijin/"
+            ],
+            "target": "/zuqiujijin"
+          }
+        ],
+        "location": "zuqiujijin.ts",
+        "module": () => import('@/routes/98zhibo/zuqiujijin.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "98直播吧",
+    "url": "www.98zhibo.com",
     "lang": "zh-CN"
   },
   "99percentinvisible": {
@@ -37872,47 +38012,128 @@ export default {
         "location": "gushitong/index.tsx",
         "module": () => import('@/routes/baidu/gushitong/index.tsx')
       },
-      "/tieba/forum/good/:kw/:cid?/:sortBy?": {
-        "path": [
-          "/tieba/forum/good/:kw/:cid?/:sortBy?",
-          "/tieba/forum/:kw/:sortBy?"
-        ],
-        "categories": [
-          "bbs"
-        ],
-        "example": "/baidu/tieba/forum/good/女图",
-        "parameters": {
-          "kw": "吧名",
-          "cid": "精品分类，默认为 `0`（全部分类），如果不传 `cid` 则获取全部分类",
-          "sortBy": "排序方式：`created`, `replied`。默认为 `created`"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "BAIDU_COOKIE",
-              "optional": false,
-              "description": "百度 cookie 值，用于需要登录的贴吧页面"
-            }
-          ],
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "精品帖子",
-        "maintainers": [
-          "u3u",
-          "FlanChanXwO"
-        ],
-        "location": "tieba/forum.tsx",
-        "module": () => import('@/routes/baidu/tieba/forum.tsx')
-      },
       "/tieba/forum/:kw/:sortBy?": {
-        "path": [
-          "/tieba/forum/good/:kw/:cid?/:sortBy?",
-          "/tieba/forum/:kw/:sortBy?"
+        "path": "/tieba/forum/:kw/:sortBy?",
+        "categories": [
+          "bbs"
         ],
+        "example": "/baidu/tieba/forum/孙笑川",
+        "parameters": {
+          "kw": "吧名",
+          "sortBy": "排序方式：`created`, `replied`。默认为 `created`"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BAIDU_COOKIE",
+              "optional": true,
+              "description": "百度 cookie 值，用于需要登录的贴吧页面"
+            }
+          ],
+          "antiCrawler": true
+        },
+        "name": "帖子列表",
+        "maintainers": [
+          "u3u",
+          "FlanChanXwO"
+        ],
+        "location": "tieba/forum.ts",
+        "module": () => import('@/routes/baidu/tieba/forum.ts')
+      },
+      "/tieba/post/:id": {
+        "path": "/tieba/post/:id",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/baidu/tieba/post/686961453",
+        "parameters": {
+          "id": "帖子 ID"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BAIDU_COOKIE",
+              "optional": true,
+              "description": "百度 cookie 值，用于需要登录的贴吧页面"
+            }
+          ],
+          "antiCrawler": true
+        },
+        "radar": [
+          {
+            "source": [
+              "tieba.baidu.com/p/:id"
+            ]
+          }
+        ],
+        "name": "帖子动态",
+        "maintainers": [
+          "u3u",
+          "FlanChanXwO"
+        ],
+        "location": "tieba/post.ts",
+        "module": () => import('@/routes/baidu/tieba/post.ts')
+      },
+      "/tieba/search/:qw/:routeParams?": {
+        "path": "/tieba/search/:qw/:routeParams?",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/baidu/tieba/search/neuro",
+        "parameters": {
+          "qw": "搜索关键词",
+          "routeParams": "额外参数；请参阅以下说明和表格"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BAIDU_COOKIE",
+              "optional": true,
+              "description": "百度 cookie 值，用于需要登录的贴吧页面"
+            }
+          ],
+          "antiCrawler": true
+        },
+        "name": "贴吧搜索",
+        "maintainers": [
+          "JimenezLi",
+          "FlanChanXwO"
+        ],
+        "description": "| 键           | 含义                                                       | 接受的值      | 默认值 |\n| ------------ | ---------------------------------------------------------- | ------------- | ------ |\n| kw           | 在名为 kw 的贴吧中搜索                                     | 任意名称 / 无 | 无     |\n| only\\_thread | 只看主题帖，默认为 0 关闭                                  | 0/1           | 0      |\n| rn           | 返回条目的数量                                             | 1-20          | 20     |\n| sm           | 排序方式，0 为按时间顺序，1 为按时间倒序，2 为按相关性顺序 | 0/1/2         | 1      |\n\n用例：`/baidu/tieba/search/neuro/kw=neurosama&only_thread=1&sm=2`",
+        "location": "tieba/search.ts",
+        "module": () => import('@/routes/baidu/tieba/search.ts')
+      },
+      "/tieba/user/:uid": {
+        "path": "/tieba/user/:uid",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/baidu/tieba/user/斗鱼游戏君",
+        "parameters": {
+          "uid": "用户 ID"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BAIDU_COOKIE",
+              "optional": true,
+              "description": "百度 cookie 值，用于需要登录的贴吧页面"
+            }
+          ],
+          "antiCrawler": true
+        },
+        "name": "用户帖子",
+        "maintainers": [
+          "igxlin",
+          "nczitzk",
+          "FlanChanXwO"
+        ],
+        "description": "用户 ID 可以通过打开用户的主页后查看地址栏的 `un` 字段来获取。",
+        "location": "tieba/user.ts",
+        "module": () => import('@/routes/baidu/tieba/user.ts')
+      },
+      "/tieba/forum/good/:kw/:cid?/:sortBy?": {
+        "path": "/tieba/forum/good/:kw/:cid?/:sortBy?",
         "categories": [
           "bbs"
         ],
@@ -37926,23 +38147,81 @@ export default {
           "requireConfig": [
             {
               "name": "BAIDU_COOKIE",
-              "optional": false,
+              "optional": true,
               "description": "百度 cookie 值，用于需要登录的贴吧页面"
             }
           ],
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
+          "antiCrawler": true
         },
         "name": "精品帖子",
         "maintainers": [
           "u3u",
           "FlanChanXwO"
         ],
-        "location": "tieba/forum.tsx",
-        "module": () => import('@/routes/baidu/tieba/forum.tsx')
+        "location": "tieba/forum-good.ts",
+        "module": () => import('@/routes/baidu/tieba/forum-good.ts')
+      },
+      "/tieba/post/lz/:id": {
+        "path": "/tieba/post/lz/:id",
+        "categories": [
+          "bbs"
+        ],
+        "example": "/baidu/tieba/post/lz/686961453",
+        "parameters": {
+          "id": "帖子 ID"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "BAIDU_COOKIE",
+              "optional": true,
+              "description": "百度 cookie 值，用于需要登录的贴吧页面"
+            }
+          ],
+          "antiCrawler": true
+        },
+        "name": "楼主动态",
+        "maintainers": [
+          "u3u",
+          "FlanChanXwO"
+        ],
+        "location": "tieba/post-lz.ts",
+        "module": () => import('@/routes/baidu/tieba/post-lz.ts')
+      },
+      "/baijiahao/:id/:tab?": {
+        "path": "/baijiahao/:id/:tab?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/baidu/baijiahao/3617",
+        "parameters": {
+          "id": "Account id, the `app_id` in the URL of the author page",
+          "tab": {
+            "description": "Content type",
+            "options": [
+              {
+                "value": "main",
+                "label": "全部"
+              },
+              {
+                "value": "article",
+                "label": "文章"
+              },
+              {
+                "value": "dynamic",
+                "label": "动态"
+              }
+            ],
+            "default": "main"
+          }
+        },
+        "name": "百家号",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "baijiahao.baidu.com",
+        "location": "baijiahao.ts",
+        "module": () => import('@/routes/baidu/baijiahao.ts')
       },
       "/search/:keyword": {
         "path": "/search/:keyword",
@@ -37967,154 +38246,6 @@ export default {
         ],
         "location": "search.tsx",
         "module": () => import('@/routes/baidu/search.tsx')
-      },
-      "/tieba/post/:id": {
-        "path": [
-          "/tieba/post/:id",
-          "/tieba/post/lz/:id"
-        ],
-        "categories": [
-          "bbs"
-        ],
-        "example": "/baidu/tieba/post/686961453",
-        "parameters": {
-          "id": "帖子 ID"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "BAIDU_COOKIE",
-              "optional": false,
-              "description": "百度 cookie 值，用于需要登录的贴吧页面"
-            }
-          ],
-          "requirePuppeteer": true,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "tieba.baidu.com/p/:id"
-            ]
-          }
-        ],
-        "name": "帖子动态",
-        "maintainers": [
-          "u3u",
-          "FlanChanXwO"
-        ],
-        "location": "tieba/post.tsx",
-        "module": () => import('@/routes/baidu/tieba/post.tsx')
-      },
-      "/tieba/post/lz/:id": {
-        "path": [
-          "/tieba/post/:id",
-          "/tieba/post/lz/:id"
-        ],
-        "categories": [
-          "bbs"
-        ],
-        "example": "/baidu/tieba/post/686961453",
-        "parameters": {
-          "id": "帖子 ID"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "BAIDU_COOKIE",
-              "optional": false,
-              "description": "百度 cookie 值，用于需要登录的贴吧页面"
-            }
-          ],
-          "requirePuppeteer": true,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "tieba.baidu.com/p/:id"
-            ]
-          }
-        ],
-        "name": "帖子动态",
-        "maintainers": [
-          "u3u",
-          "FlanChanXwO"
-        ],
-        "location": "tieba/post.tsx",
-        "module": () => import('@/routes/baidu/tieba/post.tsx')
-      },
-      "/tieba/search/:qw/:routeParams?": {
-        "path": "/tieba/search/:qw/:routeParams?",
-        "categories": [
-          "bbs"
-        ],
-        "example": "/baidu/tieba/search/neuro",
-        "parameters": {
-          "qw": "搜索关键词",
-          "routeParams": "额外参数；请参阅以下说明和表格"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "BAIDU_COOKIE",
-              "optional": false,
-              "description": "百度 cookie 值，用于需要登录的贴吧页面"
-            }
-          ],
-          "requirePuppeteer": true,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "贴吧搜索",
-        "maintainers": [
-          "JimenezLi",
-          "FlanChanXwO"
-        ],
-        "description": "| 键           | 含义                                                       | 接受的值      | 默认值 |\n| ------------ | ---------------------------------------------------------- | ------------- | ------ |\n| kw           | 在名为 kw 的贴吧中搜索                                     | 任意名称 / 无 | 无     |\n| only\\_thread | 只看主题帖，默认为 0 关闭                                  | 0/1           | 0      |\n| rn           | 返回条目的数量                                             | 1-20          | 20     |\n| sm           | 排序方式，0 为按时间顺序，1 为按时间倒序，2 为按相关性顺序 | 0/1/2         | 1      |\n\n用例：`/baidu/tieba/search/neuro/kw=neurosama&only_thread=1&sm=2`",
-        "location": "tieba/search.tsx",
-        "module": () => import('@/routes/baidu/tieba/search.tsx')
-      },
-      "/tieba/user/:uid": {
-        "path": "/tieba/user/:uid",
-        "categories": [
-          "bbs"
-        ],
-        "example": "/baidu/tieba/user/斗鱼游戏君",
-        "parameters": {
-          "uid": "用户 ID"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "BAIDU_COOKIE",
-              "optional": false,
-              "description": "百度 cookie 值，用于需要登录的贴吧页面"
-            }
-          ],
-          "requirePuppeteer": true,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "用户帖子",
-        "maintainers": [
-          "igxlin",
-          "nczitzk",
-          "FlanChanXwO"
-        ],
-        "description": "用户 ID 可以通过打开用户的主页后查看地址栏的 `un` 字段来获取。",
-        "location": "tieba/user.tsx",
-        "module": () => import('@/routes/baidu/tieba/user.tsx')
       },
       "/top/:board?": {
         "path": "/top/:board?",
@@ -43037,6 +43168,61 @@ export default {
     "url": "www.canada.ca",
     "description": "Government of Canada news by department",
     "lang": "en"
+  },
+  "canalmuseum": {
+    "routes": {
+      "/consulting/:type": {
+        "path": "/consulting/:type",
+        "categories": [
+          "travel"
+        ],
+        "example": "/canalmuseum/consulting/tzgg",
+        "parameters": {
+          "type": "News type, supported values: tzgg（通知公告）, xwdt（新闻动态）"
+        },
+        "radar": [
+          {
+            "source": [
+              "www.canalmuseum.org.cn/consulting.html"
+            ],
+            "target": "/consulting/tzgg"
+          }
+        ],
+        "name": "NEWS",
+        "maintainers": [
+          "magazian"
+        ],
+        "location": "consulting.ts",
+        "module": () => import('@/routes/canalmuseum/consulting.ts')
+      },
+      "/lszl": {
+        "path": "/lszl",
+        "categories": [
+          "travel"
+        ],
+        "example": "/canalmuseum/lszl",
+        "radar": [
+          {
+            "source": [
+              "www.canalmuseum.org.cn/lszl.html"
+            ],
+            "target": "/lszl"
+          }
+        ],
+        "name": "临时展览",
+        "maintainers": [
+          "magazian"
+        ],
+        "location": "lszl.tsx",
+        "module": () => import('@/routes/canalmuseum/lszl.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "The Grand Canal Museum of Beijing",
+    "url": "www.canalmuseum.org.cn",
+    "zh": {
+      "name": "北京大运河博物馆"
+    }
   },
   "capitalmuseum": {
     "routes": {
@@ -61010,139 +61196,6 @@ export default {
     "url": "www.eventernote.com",
     "lang": "ja"
   },
-  "everia": {
-    "routes": {
-      "/category/:category": {
-        "path": "/category/:category",
-        "categories": [
-          "picture"
-        ],
-        "example": "/everia/category/cosplay",
-        "parameters": {
-          "category": "Category of the image stream"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "everia.club/category/:category"
-            ],
-            "target": "/category/:category"
-          }
-        ],
-        "name": "Images with category",
-        "maintainers": [
-          "KTachibanaM",
-          "AiraNadih"
-        ],
-        "location": "category.ts",
-        "module": () => import('@/routes/everia/category.ts')
-      },
-      "/": {
-        "path": "/",
-        "categories": [
-          "picture"
-        ],
-        "example": "/everia",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "everia.club/"
-            ],
-            "target": ""
-          }
-        ],
-        "name": "Latest",
-        "maintainers": [
-          "KTachibanaM",
-          "AiraNadih"
-        ],
-        "location": "latest.ts",
-        "module": () => import('@/routes/everia/latest.ts')
-      },
-      "/search/:keyword": {
-        "path": "/search/:keyword",
-        "categories": [
-          "picture"
-        ],
-        "example": "/everia/search/日向坂46",
-        "parameters": {
-          "keyword": "Keyword"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "name": "Search",
-        "maintainers": [
-          "KTachibanaM",
-          "AiraNadih"
-        ],
-        "location": "search.ts",
-        "module": () => import('@/routes/everia/search.ts')
-      },
-      "/tag/:tag": {
-        "path": "/tag/:tag",
-        "categories": [
-          "picture"
-        ],
-        "example": "/everia/tag/hinatazaka46-日向坂46",
-        "parameters": {
-          "tag": "Tag of the image stream"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "everia.club/tag/:tag"
-            ],
-            "target": "/tag/:tag"
-          }
-        ],
-        "name": "Images with tag",
-        "maintainers": [
-          "KTachibanaM",
-          "AiraNadih"
-        ],
-        "location": "tag.ts",
-        "module": () => import('@/routes/everia/tag.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "EVERIA.CLUB",
-    "url": "everia.club"
-  },
   "expats": {
     "routes": {
       "/czech-news/:category?": {
@@ -63332,65 +63385,6 @@ export default {
     "name": "GameApps.hk 香港手机游戏网",
     "url": "gameapps.hk",
     "lang": "zh-HK"
-  },
-  "gamebase": {
-    "routes": {
-      "/news/:type?/:category?": {
-        "path": "/news/:type?/:category?",
-        "name": "新聞",
-        "url": "news.gamebase.com.tw",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "example": "/gamebase/news",
-        "parameters": {
-          "type": "類型，見下表，預設為 newslist",
-          "category": "分類，預設為 `all`，即全部，可在對應分類頁 URL 中找到"
-        },
-        "description": "::: tip\n若訂閱 [手機遊戲新聞](https://news.gamebase.com.tw/news/newslist?type=mobile)，網址為 `https://news.gamebase.com.tw/news/newslist?type=mobile`，請截取 `https://news.gamebase.com.tw/news/` 到末尾的部分 `newslist` 作為 `type` 參數填入，`mobile` 作為 `category` 參數填入，此時目標路由為 [`/gamebase/news/newslist/mobile`](https://rsshub.app/gamebase/news/newslist/mobile)。\n:::\n\n| newslist | r18list |\n| -------- | ------- |",
-        "categories": [
-          "game"
-        ],
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportRadar": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "news.gamebase.com.tw/news",
-              "news.gamebase.com.tw/news/:type"
-            ]
-          }
-        ],
-        "view": 0,
-        "zh": {
-          "path": "/news/:type?/:category?",
-          "name": "新闻",
-          "url": "news.gamebase.com.tw",
-          "maintainers": [
-            "nczitzk"
-          ],
-          "example": "/gamebase/news",
-          "parameters": {
-            "type": "类型，见下表，默认为 newslist",
-            "category": "分类，默认为 `all`，即全部，可在对应分类页 URL 中找到"
-          },
-          "description": "::: tip\n若订阅 [手机游戏新闻](https://news.gamebase.com.tw/news/newslist?type=mobile)，网址为 `https://news.gamebase.com.tw/news/newslist?type=mobile`，请截取 `https://news.gamebase.com.tw/news/` 到末尾的部分 `newslist` 作为 `type` 参数填入，`mobile` 作为 `category` 参数填入，此时目标路由为 [`/gamebase/news/newslist/mobile`](https://rsshub.app/gamebase/news/newslist/mobile)。\n:::\n\n| newslist | r18list |\n| -------- | ------- |"
-        },
-        "location": "news.tsx",
-        "module": () => import('@/routes/gamebase/news.tsx')
-      }
-    },
-    "apiRoutes": {},
-    "name": "遊戲基地 Gamebase",
-    "url": "news.gamebase.com.tw",
-    "lang": "zh-TW"
   },
   "gamegene": {
     "routes": {
@@ -72359,6 +72353,61 @@ export default {
   },
   "icity": {
     "routes": {
+      "/imuseum/:city/:type?": {
+        "path": "/imuseum/:city/:type?",
+        "categories": [
+          "travel"
+        ],
+        "example": "/icity/imuseum/guangzhou/latest",
+        "parameters": {
+          "city": "城市，取自站点 URL 中的城市路径，如 guangzhou、shanghai、beijing",
+          "type": {
+            "description": "展览列表类型",
+            "default": "latest",
+            "options": [
+              {
+                "value": "all",
+                "label": "全部"
+              },
+              {
+                "value": "latest",
+                "label": "最新"
+              },
+              {
+                "value": "hot",
+                "label": "热门"
+              },
+              {
+                "value": "end_soon",
+                "label": "即将结束"
+              },
+              {
+                "value": "coming",
+                "label": "即将开始"
+              },
+              {
+                "value": "outdated",
+                "label": "已结束"
+              }
+            ]
+          }
+        },
+        "name": "iMuseum 城市展览",
+        "maintainers": [
+          "chouj"
+        ],
+        "radar": [
+          {
+            "source": [
+              "art.icity.ly/:city"
+            ],
+            "target": "/imuseum/:city"
+          }
+        ],
+        "description": "iMuseum（每日环球展览）各城市正在进行与即将开始的展览。城市与类型均取自站点 URL 路径，例如 `guangzhou/latest`。",
+        "location": "imuseum.ts",
+        "module": () => import('@/routes/icity/imuseum.ts')
+      },
       "/:id": {
         "path": "/:id",
         "categories": [
@@ -81109,6 +81158,46 @@ export default {
     "url": "magnumphotos.com",
     "lang": "en"
   },
+  "maldita": {
+    "routes": {
+      "/updates/:category?": {
+        "path": "/updates/:category?",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/maldita/updates/desinfo",
+        "parameters": {
+          "category": "Category to fetch"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "maldita.es/:category/"
+            ],
+            "target": "/updates/:category"
+          }
+        ],
+        "name": "Latest Updates",
+        "maintainers": [
+          "canonnizq"
+        ],
+        "description": "Categories: all | desinfo | prebunking | investigaciones | control-del-poder | policy",
+        "location": "updates.ts",
+        "module": () => import('@/routes/maldita/updates.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Maldita.es",
+    "url": "maldita.es"
+  },
   "manhuagui": {
     "routes": {
       "/comic/:id/:chapterCnt?": {
@@ -84312,6 +84401,37 @@ export default {
     "url": "mingpao.com",
     "lang": "zh-TW"
   },
+  "minhangmuseum": {
+    "routes": {
+      "/interim": {
+        "path": "/interim",
+        "categories": [
+          "travel"
+        ],
+        "example": "/minhangmuseum/interim",
+        "name": "临时展览",
+        "maintainers": [
+          "magazian"
+        ],
+        "radar": [
+          {
+            "source": [
+              "minhangmuseum.shmh.gov.cn/weixin/interim/list.htm"
+            ],
+            "target": "/interim"
+          }
+        ],
+        "location": "interim.tsx",
+        "module": () => import('@/routes/minhangmuseum/interim.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "Minhang Museum",
+    "url": "minhangmuseum.shmh.gov.cn",
+    "zh": {
+      "name": "上海市闵行区博物馆"
+    }
+  },
   "missav": {
     "routes": {
       "/new": {
@@ -85766,6 +85886,37 @@ export default {
       "new-media"
     ],
     "lang": "en"
+  },
+  "namoc": {
+    "routes": {
+      "/zhanlan": {
+        "path": "/zhanlan",
+        "categories": [
+          "travel"
+        ],
+        "example": "/namoc/zhanlan",
+        "name": "Exhibitions",
+        "maintainers": [
+          "magazian"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.namoc.cn/namoc/zhanlan/zl_list.shtml"
+            ],
+            "target": "/zhanlan"
+          }
+        ],
+        "location": "zhanlan.tsx",
+        "module": () => import('@/routes/namoc/zhanlan.tsx')
+      }
+    },
+    "apiRoutes": {},
+    "name": "National Art Museum of China",
+    "url": "www.namoc.cn",
+    "zh": {
+      "name": "中国美术馆"
+    }
   },
   "nankai": {
     "routes": {
@@ -114924,6 +115075,149 @@ export default {
     "url": "toranoana.jp",
     "lang": "ja"
   },
+  "toutiao": {
+    "routes": {
+      "/user/token/:token": {
+        "path": "/user/token/:token",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/toutiao/user/token/MS4wLjABAAAApOspM7AnWqplD9FIBGnhJRfUjFT_msD1KZMfNPBZa-c",
+        "parameters": {
+          "token": "用户 token，可在用户主页 URL 找到"
+        },
+        "features": {
+          "antiCrawler": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.toutiao.com/c/user/token/:token"
+            ]
+          }
+        ],
+        "name": "头条主页",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "user.tsx",
+        "module": () => import('@/routes/toutiao/user.tsx')
+      },
+      "/channel/:category": {
+        "path": "/channel/:category",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/toutiao/channel/news_tech",
+        "parameters": {
+          "category": {
+            "description": "频道",
+            "options": [
+              {
+                "value": "recommend",
+                "label": "推荐"
+              },
+              {
+                "value": "news_hot",
+                "label": "热点"
+              },
+              {
+                "value": "news_tech",
+                "label": "科技"
+              },
+              {
+                "value": "news_finance",
+                "label": "财经"
+              },
+              {
+                "value": "news_entertainment",
+                "label": "娱乐"
+              },
+              {
+                "value": "news_sports",
+                "label": "体育"
+              },
+              {
+                "value": "news_world",
+                "label": "国际"
+              },
+              {
+                "value": "news_military",
+                "label": "军事"
+              },
+              {
+                "value": "news_history",
+                "label": "历史"
+              },
+              {
+                "value": "news_essay",
+                "label": "美文"
+              },
+              {
+                "value": "news_food",
+                "label": "美食"
+              },
+              {
+                "value": "news_travel",
+                "label": "旅游"
+              },
+              {
+                "value": "news_fashion",
+                "label": "时尚"
+              },
+              {
+                "value": "news_game",
+                "label": "游戏"
+              },
+              {
+                "value": "news_baby",
+                "label": "育儿"
+              },
+              {
+                "value": "news_regimen",
+                "label": "养生"
+              },
+              {
+                "value": "digital",
+                "label": "数码"
+              },
+              {
+                "value": "video",
+                "label": "视频"
+              }
+            ]
+          }
+        },
+        "features": {
+          "antiCrawler": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.toutiao.com/ch/:category"
+            ]
+          },
+          {
+            "title": "推荐",
+            "source": [
+              "www.toutiao.com/"
+            ],
+            "target": "/channel/recommend"
+          }
+        ],
+        "name": "频道",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "channel.ts",
+        "module": () => import('@/routes/toutiao/channel.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "今日头条",
+    "url": "www.toutiao.com",
+    "lang": "zh-CN"
+  },
   "towardsdatascience": {
     "routes": {
       "/latest": {
@@ -122456,38 +122750,6 @@ export default {
         "location": "user-stock.ts",
         "module": () => import('@/routes/xueqiu/user-stock.ts')
       },
-      "/column/:id": {
-        "path": "/column/:id",
-        "categories": [
-          "finance"
-        ],
-        "example": "/xueqiu/column/9962554712",
-        "parameters": {
-          "id": "用户 id, 可在用户主页 URL 中找到"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": true,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "xueqiu.com/:id/column"
-            ]
-          }
-        ],
-        "name": "用户专栏",
-        "maintainers": [
-          "TonyRL",
-          "pseudoyu"
-        ],
-        "location": "column.ts",
-        "module": () => import('@/routes/xueqiu/column.ts')
-      },
       "/fund/:id": {
         "path": "/fund/:id",
         "categories": [
@@ -122704,6 +122966,38 @@ export default {
         "description": "| 原发布 | 长文 | 问答 | 热门 | 交易 |\n| ------ | ---- | ---- | ---- | ---- |\n| 0      | 2    | 4    | 9    | 11   |",
         "location": "user.ts",
         "module": () => import('@/routes/xueqiu/user.ts')
+      },
+      "/column/:id": {
+        "path": "/column/:id",
+        "categories": [
+          "finance"
+        ],
+        "example": "/xueqiu/column/9962554712",
+        "parameters": {
+          "id": "用户 id, 可在用户主页 URL 中找到"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "xueqiu.com/:id/column"
+            ]
+          }
+        ],
+        "name": "用户专栏",
+        "maintainers": [
+          "TonyRL",
+          "pseudoyu"
+        ],
+        "location": "column.ts",
+        "module": () => import('@/routes/xueqiu/column.ts')
       },
       "/stock_comments/:id": {
         "path": "/stock_comments/:id",
@@ -123128,6 +123422,7 @@ export default {
         ],
         "features": {
           "antiCrawler": true,
+          "requirePuppeteer": true,
           "requireConfig": [
             {
               "optional": true,
@@ -123160,6 +123455,7 @@ export default {
         ],
         "features": {
           "antiCrawler": true,
+          "requirePuppeteer": true,
           "requireConfig": [
             {
               "optional": true,
@@ -126776,6 +127072,87 @@ export default {
     "name": "禁漫天堂",
     "url": "18comic.org",
     "description": "::: tip\n禁漫天堂有多个备用域名，本路由默认使用域名 `https://jmcomic.me`，若该域名无法访问，可以通过在路由最后加上 `?domain=<域名>` 指定路由访问的域名。如指定备用域名为 `https://jmcomic1.me`，则在所有禁漫天堂路由最后加上 `?domain=jmcomic1.me` 即可，此时路由为 [`/18comic?domain=jmcomic1.me`](https://rsshub.app/18comic?domain=jmcomic1.me)\n:::",
+    "lang": "zh-CN"
+  },
+  "1lou": {
+    "routes": {
+      "/:params{.+}?": {
+        "path": "/:params{.+}?",
+        "name": "通用",
+        "url": "1lou.me",
+        "maintainers": [
+          "falling",
+          "nczitzk"
+        ],
+        "example": "/1lou/forum-2-1",
+        "parameters": {
+          "params": "路径参数，可以在对应页面的 URL 中找到"
+        },
+        "description": "::: tip\n`1lou.me/` 后的内容填入 params 参数，以下是几个例子：\n\n若订阅 [大陆电视剧](https://www.1lou.me/forum-2-1.htm?tagids=0_97_0_0)，网址为 `https://www.1lou.me/forum-2-1.htm?tagids=0_97_0_0`。截取 `https://www.1lou.me/` 到末尾 `.htm` 的部分 `forum-2-1` 作为参数，并补充 `tagids`，此时路由为 [`/1lou/forum-2-1?tagids=0_97_0_0`](https://rsshub.app/1lou/forum-2-1?tagids=0_97_0_0)。\n\n若订阅 [最新发帖电视剧](https://www.1lou.me/forum-2-1.htm?orderby=tid\\&digest=0)，网址为 `https://www.1lou.me/forum-2-1.htm?orderby=tid&digest=0`。截取 `https://www.1lou.me/` 到末尾 `.htm` 的部分 `forum-2-1` 作为参数，并补充 `orderby`，此时路由为 [`/1lou/forum-2-1?orderby=tid`](https://rsshub.app/1lou/forum-2-1?orderby=tid)。\n\n搜索功能已移至 “搜索” 路由。\n:::",
+        "categories": [
+          "multimedia"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "1lou.me/:params"
+            ]
+          }
+        ],
+        "location": "index.ts",
+        "module": () => import('@/routes/1lou/index.ts')
+      },
+      "/search/:params": {
+        "path": "/search/:params",
+        "name": "搜索",
+        "url": "1lou.me/search",
+        "maintainers": [
+          "JimenezLi"
+        ],
+        "example": "/1lou/search/繁花",
+        "parameters": {
+          "params": "搜索关键词"
+        },
+        "description": "搜索路由，支持关键词搜索。",
+        "categories": [
+          "multimedia"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "1lou.me/search"
+            ]
+          }
+        ],
+        "location": "search.ts",
+        "module": () => import('@/routes/1lou/search.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "BT 之家 1LOU 站",
+    "url": "1lou.me",
+    "categories": [
+      "multimedia"
+    ],
+    "description": "",
     "lang": "zh-CN"
   },
   "36kr": {
@@ -130649,6 +131026,48 @@ export default {
     "name": "Bloomberg",
     "url": "www.bloomberg.com",
     "lang": "en"
+  },
+  "br-klassik": {
+    "routes": {
+      "/aktuell": {
+        "path": "/aktuell",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/br-klassik/aktuell",
+        "parameters": {},
+        "features": {
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "requireConfig": false
+        },
+        "name": "Aktuell (News & Kritik)",
+        "maintainers": [
+          "wongJG"
+        ],
+        "description": "News und Kritik aus der Welt der Klassischen Musik.",
+        "radar": [
+          {
+            "source": [
+              "www.br-klassik.de/aktuell/index.html"
+            ],
+            "target": "/aktuell"
+          }
+        ],
+        "location": "aktuell.ts",
+        "module": () => import('@/routes/br-klassik/aktuell.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "BR-Klassik",
+    "url": "br-klassik.de",
+    "lang": "de",
+    "categories": [
+      "traditional-media"
+    ]
   },
   "brooklynmuseum": {
     "routes": {
@@ -149245,54 +149664,6 @@ export default {
         "location": "weixin/pay/announce.ts",
         "module": () => import('@/routes/qq/weixin/pay/announce.ts')
       },
-      "/kg/reply/:playId": {
-        "path": "/kg/reply/:playId",
-        "categories": [
-          "social-media"
-        ],
-        "example": "/qq/kg/reply/OhXHMdO1VxLWQOOm",
-        "parameters": {
-          "playId": "音频页 ID, 可在对应页面的 URL 中找到"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "全民K歌 - 用户作品评论动态",
-        "maintainers": [
-          "zhangxiang012"
-        ],
-        "location": "kg/reply.ts",
-        "module": () => import('@/routes/qq/kg/reply.ts')
-      },
-      "/kg/:userId": {
-        "path": "/kg/:userId",
-        "categories": [
-          "social-media"
-        ],
-        "example": "/qq/kg/639a9a86272c308e33",
-        "parameters": {
-          "userId": "用户 ID, 可在对应页面的 URL 中找到"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": true,
-          "supportScihub": false
-        },
-        "name": "全民K歌 - 用户作品列表",
-        "maintainers": [
-          "zhangxiang012"
-        ],
-        "location": "kg/user.ts",
-        "module": () => import('@/routes/qq/kg/user.ts')
-      },
       "/ac/comic/:id?": {
         "path": "/ac/comic/:id?",
         "categories": [
@@ -149412,6 +149783,30 @@ export default {
         "url": "vp.fact.qq.com/home",
         "location": "fact/index.tsx",
         "module": () => import('@/routes/qq/fact/index.tsx')
+      },
+      "/kg/:userId": {
+        "path": "/kg/:userId",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/qq/kg/639a9a86272c308e33",
+        "parameters": {
+          "userId": "用户 ID, 可在对应页面的 URL 中找到"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": true,
+          "supportScihub": false
+        },
+        "name": "全民K歌 - 用户作品列表",
+        "maintainers": [
+          "zhangxiang012"
+        ],
+        "location": "kg/user.ts",
+        "module": () => import('@/routes/qq/kg/user.ts')
       },
       "/lol/news/:category?": {
         "path": "/lol/news/:category?",
@@ -149617,6 +150012,30 @@ export default {
         "description": "| 月票榜 | 飙升榜 | 新作榜 | 畅销榜 | TOP100 | 男生榜 | 女生榜 |\n| ------ | ------ | ------ | ------ | ------ | ------ | ------ |\n| mt     | rise   | new    | pay    | top    | male   | female |\n\n::: tip\n`time` 参数仅在 `type` 参数选为 **月票榜** 的时候生效。\n:::",
         "location": "ac/rank.ts",
         "module": () => import('@/routes/qq/ac/rank.ts')
+      },
+      "/kg/reply/:playId": {
+        "path": "/kg/reply/:playId",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/qq/kg/reply/OhXHMdO1VxLWQOOm",
+        "parameters": {
+          "playId": "音频页 ID, 可在对应页面的 URL 中找到"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "全民K歌 - 用户作品评论动态",
+        "maintainers": [
+          "zhangxiang012"
+        ],
+        "location": "kg/reply.ts",
+        "module": () => import('@/routes/qq/kg/reply.ts')
       }
     },
     "apiRoutes": {},
@@ -158419,7 +158838,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": ""
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM."
             }
           ],
           "requirePuppeteer": false,
@@ -158456,7 +158875,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": "",
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM.",
               "optional": true
             }
           ],
@@ -158530,7 +158949,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": "",
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM.",
               "optional": true
             }
           ],
@@ -158602,7 +159021,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": "",
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM.",
               "optional": true
             }
           ],
@@ -158643,7 +159062,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": "",
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM.",
               "optional": true
             }
           ],
@@ -158711,7 +159130,7 @@ export default {
           "requireConfig": [
             {
               "name": "ZHIHU_COOKIES",
-              "description": ""
+              "description": "A complete d_c0 and __zse_ck cookie pair skips session initialization. Otherwise Workers use a Playwright browser session; Docker and Vercel generate credentials with JSDOM."
             }
           ],
           "requirePuppeteer": false,
@@ -158959,6 +159378,388 @@ export default {
     "name": "Finology Insider",
     "url": "insider.finology.in",
     "lang": "en"
+  },
+  "pixiv": {
+    "routes": {
+      "/user/bookmarks/:id": {
+        "path": "/user/bookmarks/:id",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/pixiv/user/bookmarks/15288095",
+        "parameters": {
+          "id": "user id, available in user's homepage URL"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.pixiv.net/users/:id/bookmarks/artworks",
+              "www.pixiv.net/en/users/:id/bookmarks/artworks"
+            ]
+          }
+        ],
+        "name": "User Bookmark",
+        "maintainers": [
+          "EYHN"
+        ],
+        "location": "bookmarks.ts",
+        "module": () => import('@/routes/pixiv/bookmarks.ts')
+      },
+      "/user/illustfollows": {
+        "path": "/user/illustfollows",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/pixiv/user/illustfollows",
+        "parameters": {},
+        "features": {
+          "requireConfig": [
+            {
+              "name": "PIXIV_REFRESHTOKEN",
+              "description": ""
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.pixiv.net/bookmark_new_illust.php"
+            ]
+          }
+        ],
+        "name": "Following timeline",
+        "maintainers": [
+          "ClarkeCheng"
+        ],
+        "url": "www.pixiv.net/bookmark_new_illust.php",
+        "description": "::: warning\nOnly for self-hosted\n:::",
+        "location": "illustfollow.ts",
+        "module": () => import('@/routes/pixiv/illustfollow.ts')
+      },
+      "/ranking/:mode/:date?": {
+        "path": "/ranking/:mode/:date?",
+        "categories": [
+          "social-media"
+        ],
+        "view": 2,
+        "example": "/pixiv/ranking/week",
+        "parameters": {
+          "mode": {
+            "description": "rank type",
+            "options": [
+              {
+                "value": "day",
+                "label": "daily rank"
+              },
+              {
+                "value": "week",
+                "label": "weekly rank"
+              },
+              {
+                "value": "month",
+                "label": "monthly rank"
+              },
+              {
+                "value": "day_male",
+                "label": "male rank"
+              },
+              {
+                "value": "day_felame",
+                "label": "female rank"
+              },
+              {
+                "value": "day_ai",
+                "label": "AI-generated work Rankings"
+              },
+              {
+                "value": "week_original",
+                "label": "original rank"
+              },
+              {
+                "value": "week_rookie",
+                "label": "rookie user rank"
+              },
+              {
+                "value": "day_r18",
+                "label": "R-18 daily rank"
+              },
+              {
+                "value": "day_r18_ai",
+                "label": "R-18 AI-generated work"
+              },
+              {
+                "value": "day_male_r18",
+                "label": "R-18 male rank"
+              },
+              {
+                "value": "day_female_r18",
+                "label": "R-18 female rank"
+              },
+              {
+                "value": "week_r18",
+                "label": "R-18 weekly rank"
+              },
+              {
+                "value": "week_r18g",
+                "label": "R-18G rank"
+              }
+            ],
+            "default": "day"
+          },
+          "date": "format: `2018-4-25`"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "name": "Rankings",
+        "maintainers": [
+          "EYHN"
+        ],
+        "location": "ranking.ts",
+        "module": () => import('@/routes/pixiv/ranking.ts')
+      },
+      "/search/:keyword/:order?/:mode?/:include_ai?": {
+        "path": "/search/:keyword/:order?/:mode?/:include_ai?",
+        "categories": [
+          "social-media"
+        ],
+        "view": 2,
+        "example": "/pixiv/search/Nezuko/popular",
+        "parameters": {
+          "keyword": "keyword",
+          "order": {
+            "description": "rank mode, empty or other for time order, popular for popular order",
+            "default": "date",
+            "options": [
+              {
+                "label": "time order",
+                "value": "date"
+              },
+              {
+                "label": "popular order",
+                "value": "popular"
+              }
+            ]
+          },
+          "mode": {
+            "description": "filte R18 content",
+            "default": "no",
+            "options": [
+              {
+                "label": "only not R18",
+                "value": "safe"
+              },
+              {
+                "label": "only R18",
+                "value": "r18"
+              },
+              {
+                "label": "no filter",
+                "value": "no"
+              }
+            ]
+          },
+          "include_ai": {
+            "description": "whether AI-generated content is included",
+            "default": "yes",
+            "options": [
+              {
+                "label": "does not include AI-generated content",
+                "value": "no"
+              },
+              {
+                "label": "include AI-generated content",
+                "value": "yes"
+              }
+            ]
+          }
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "name": "Keyword",
+        "maintainers": [
+          "DIYgod"
+        ],
+        "location": "search.ts",
+        "module": () => import('@/routes/pixiv/search.ts')
+      },
+      "/user/:id": {
+        "path": "/user/:id",
+        "categories": [
+          "social-media"
+        ],
+        "view": 2,
+        "example": "/pixiv/user/15288095",
+        "parameters": {
+          "id": "user id, available in user's homepage URL"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "source": [
+              "www.pixiv.net/users/:id",
+              "www.pixiv.net/en/users/:id"
+            ]
+          }
+        ],
+        "name": "User Activity",
+        "maintainers": [
+          "DIYgod"
+        ],
+        "location": "user.ts",
+        "module": () => import('@/routes/pixiv/user.ts')
+      },
+      "/novel/series/:id": {
+        "path": "/novel/series/:id",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/pixiv/novel/series/11586857",
+        "parameters": {
+          "id": "Series id, can be found in URL"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "PIXIV_REFRESHTOKEN",
+              "optional": true,
+              "description": "\nrefresh_token after Pixiv login, required for accessing R18 novels\nPixiv 登錄後的 refresh_token，用於獲取 R18 小說\n[https://docs.rsshub.app/deploy/config#pixiv](https://docs.rsshub.app/deploy/config#pixiv)"
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "name": "Novel Series",
+        "maintainers": [
+          "SnowAgar25",
+          "keocheung"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.pixiv.net/novel/series/:id"
+            ],
+            "target": "/novel/series/:id"
+          }
+        ],
+        "location": "novel-series.ts",
+        "module": () => import('@/routes/pixiv/novel-series.ts')
+      },
+      "/user/novels/:id/:full_content?": {
+        "path": "/user/novels/:id/:full_content?",
+        "categories": [
+          "social-media"
+        ],
+        "view": 0,
+        "example": "/pixiv/user/novels/27104704",
+        "parameters": {
+          "id": "User id, available in user's homepage URL",
+          "full_content": {
+            "description": "Enable or disable the display of full content. ",
+            "options": [
+              {
+                "value": "true",
+                "label": "true"
+              },
+              {
+                "value": "false",
+                "label": "false"
+              }
+            ],
+            "default": "false"
+          }
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "PIXIV_REFRESHTOKEN",
+              "optional": true,
+              "description": "\nPixiv 登錄後的 refresh_token，用於獲取 R18 小說\nrefresh_token after Pixiv login, required for accessing R18 novels\n[https://docs.rsshub.app/deploy/config#pixiv](https://docs.rsshub.app/deploy/config#pixiv)"
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "nsfw": true
+        },
+        "radar": [
+          {
+            "title": "User Novels (簡介 Basic info)",
+            "source": [
+              "www.pixiv.net/users/:id/novels",
+              "www.pixiv.net/users/:id",
+              "www.pixiv.net/en/users/:id/novels",
+              "www.pixiv.net/en/users/:id"
+            ],
+            "target": "/user/novels/:id"
+          },
+          {
+            "title": "User Novels (全文 Full text)",
+            "source": [
+              "www.pixiv.net/users/:id/novels",
+              "www.pixiv.net/users/:id",
+              "www.pixiv.net/en/users/:id/novels",
+              "www.pixiv.net/en/users/:id"
+            ],
+            "target": "/user/novels/:id/true"
+          }
+        ],
+        "name": "User Novels",
+        "maintainers": [
+          "TonyRL",
+          "SnowAgar25"
+        ],
+        "description": "| 小說類型 Novel Type | full\\_content | PIXIV\\_REFRESHTOKEN | 返回內容 Content |\n| ------------------- | ------------- | ------------------- | ---------------- |\n| Non R18             | false         | 不需要 Not Required | 簡介 Basic info  |\n| Non R18             | true          | 不需要 Not Required | 全文 Full text   |\n| R18                 | false         | 需要 Required       | 簡介 Basic info  |\n| R18                 | true          | 需要 Required       | 全文 Full text   |\n\nDefault value for `full_content` is `false` if not specified.\n\nExample:\n\n- `/pixiv/user/novels/79603797` → 簡介 Basic info\n- `/pixiv/user/novels/79603797/true` → 全文 Full text",
+        "location": "novels.ts",
+        "module": () => import('@/routes/pixiv/novels.ts')
+      }
+    },
+    "apiRoutes": {},
+    "name": "pixiv",
+    "url": "www.pixiv.net",
+    "lang": "ja"
   },
   "ryo.lu": {
     "routes": {
@@ -159600,388 +160401,6 @@ export default {
     "name": "Google",
     "url": "www.google.com",
     "lang": "en"
-  },
-  "pixiv": {
-    "routes": {
-      "/user/bookmarks/:id": {
-        "path": "/user/bookmarks/:id",
-        "categories": [
-          "social-media"
-        ],
-        "example": "/pixiv/user/bookmarks/15288095",
-        "parameters": {
-          "id": "user id, available in user's homepage URL"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "www.pixiv.net/users/:id/bookmarks/artworks",
-              "www.pixiv.net/en/users/:id/bookmarks/artworks"
-            ]
-          }
-        ],
-        "name": "User Bookmark",
-        "maintainers": [
-          "EYHN"
-        ],
-        "location": "bookmarks.ts",
-        "module": () => import('@/routes/pixiv/bookmarks.ts')
-      },
-      "/user/illustfollows": {
-        "path": "/user/illustfollows",
-        "categories": [
-          "social-media"
-        ],
-        "example": "/pixiv/user/illustfollows",
-        "parameters": {},
-        "features": {
-          "requireConfig": [
-            {
-              "name": "PIXIV_REFRESHTOKEN",
-              "description": ""
-            }
-          ],
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "www.pixiv.net/bookmark_new_illust.php"
-            ]
-          }
-        ],
-        "name": "Following timeline",
-        "maintainers": [
-          "ClarkeCheng"
-        ],
-        "url": "www.pixiv.net/bookmark_new_illust.php",
-        "description": "::: warning\nOnly for self-hosted\n:::",
-        "location": "illustfollow.ts",
-        "module": () => import('@/routes/pixiv/illustfollow.ts')
-      },
-      "/ranking/:mode/:date?": {
-        "path": "/ranking/:mode/:date?",
-        "categories": [
-          "social-media"
-        ],
-        "view": 2,
-        "example": "/pixiv/ranking/week",
-        "parameters": {
-          "mode": {
-            "description": "rank type",
-            "options": [
-              {
-                "value": "day",
-                "label": "daily rank"
-              },
-              {
-                "value": "week",
-                "label": "weekly rank"
-              },
-              {
-                "value": "month",
-                "label": "monthly rank"
-              },
-              {
-                "value": "day_male",
-                "label": "male rank"
-              },
-              {
-                "value": "day_felame",
-                "label": "female rank"
-              },
-              {
-                "value": "day_ai",
-                "label": "AI-generated work Rankings"
-              },
-              {
-                "value": "week_original",
-                "label": "original rank"
-              },
-              {
-                "value": "week_rookie",
-                "label": "rookie user rank"
-              },
-              {
-                "value": "day_r18",
-                "label": "R-18 daily rank"
-              },
-              {
-                "value": "day_r18_ai",
-                "label": "R-18 AI-generated work"
-              },
-              {
-                "value": "day_male_r18",
-                "label": "R-18 male rank"
-              },
-              {
-                "value": "day_female_r18",
-                "label": "R-18 female rank"
-              },
-              {
-                "value": "week_r18",
-                "label": "R-18 weekly rank"
-              },
-              {
-                "value": "week_r18g",
-                "label": "R-18G rank"
-              }
-            ],
-            "default": "day"
-          },
-          "date": "format: `2018-4-25`"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "name": "Rankings",
-        "maintainers": [
-          "EYHN"
-        ],
-        "location": "ranking.ts",
-        "module": () => import('@/routes/pixiv/ranking.ts')
-      },
-      "/search/:keyword/:order?/:mode?/:include_ai?": {
-        "path": "/search/:keyword/:order?/:mode?/:include_ai?",
-        "categories": [
-          "social-media"
-        ],
-        "view": 2,
-        "example": "/pixiv/search/Nezuko/popular",
-        "parameters": {
-          "keyword": "keyword",
-          "order": {
-            "description": "rank mode, empty or other for time order, popular for popular order",
-            "default": "date",
-            "options": [
-              {
-                "label": "time order",
-                "value": "date"
-              },
-              {
-                "label": "popular order",
-                "value": "popular"
-              }
-            ]
-          },
-          "mode": {
-            "description": "filte R18 content",
-            "default": "no",
-            "options": [
-              {
-                "label": "only not R18",
-                "value": "safe"
-              },
-              {
-                "label": "only R18",
-                "value": "r18"
-              },
-              {
-                "label": "no filter",
-                "value": "no"
-              }
-            ]
-          },
-          "include_ai": {
-            "description": "whether AI-generated content is included",
-            "default": "yes",
-            "options": [
-              {
-                "label": "does not include AI-generated content",
-                "value": "no"
-              },
-              {
-                "label": "include AI-generated content",
-                "value": "yes"
-              }
-            ]
-          }
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "name": "Keyword",
-        "maintainers": [
-          "DIYgod"
-        ],
-        "location": "search.ts",
-        "module": () => import('@/routes/pixiv/search.ts')
-      },
-      "/user/:id": {
-        "path": "/user/:id",
-        "categories": [
-          "social-media"
-        ],
-        "view": 2,
-        "example": "/pixiv/user/15288095",
-        "parameters": {
-          "id": "user id, available in user's homepage URL"
-        },
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "source": [
-              "www.pixiv.net/users/:id",
-              "www.pixiv.net/en/users/:id"
-            ]
-          }
-        ],
-        "name": "User Activity",
-        "maintainers": [
-          "DIYgod"
-        ],
-        "location": "user.ts",
-        "module": () => import('@/routes/pixiv/user.ts')
-      },
-      "/novel/series/:id": {
-        "path": "/novel/series/:id",
-        "categories": [
-          "social-media"
-        ],
-        "example": "/pixiv/novel/series/11586857",
-        "parameters": {
-          "id": "Series id, can be found in URL"
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "PIXIV_REFRESHTOKEN",
-              "optional": true,
-              "description": "\nrefresh_token after Pixiv login, required for accessing R18 novels\nPixiv 登錄後的 refresh_token，用於獲取 R18 小說\n[https://docs.rsshub.app/deploy/config#pixiv](https://docs.rsshub.app/deploy/config#pixiv)"
-            }
-          ],
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "name": "Novel Series",
-        "maintainers": [
-          "SnowAgar25",
-          "keocheung"
-        ],
-        "radar": [
-          {
-            "source": [
-              "www.pixiv.net/novel/series/:id"
-            ],
-            "target": "/novel/series/:id"
-          }
-        ],
-        "location": "novel-series.ts",
-        "module": () => import('@/routes/pixiv/novel-series.ts')
-      },
-      "/user/novels/:id/:full_content?": {
-        "path": "/user/novels/:id/:full_content?",
-        "categories": [
-          "social-media"
-        ],
-        "view": 0,
-        "example": "/pixiv/user/novels/27104704",
-        "parameters": {
-          "id": "User id, available in user's homepage URL",
-          "full_content": {
-            "description": "Enable or disable the display of full content. ",
-            "options": [
-              {
-                "value": "true",
-                "label": "true"
-              },
-              {
-                "value": "false",
-                "label": "false"
-              }
-            ],
-            "default": "false"
-          }
-        },
-        "features": {
-          "requireConfig": [
-            {
-              "name": "PIXIV_REFRESHTOKEN",
-              "optional": true,
-              "description": "\nPixiv 登錄後的 refresh_token，用於獲取 R18 小說\nrefresh_token after Pixiv login, required for accessing R18 novels\n[https://docs.rsshub.app/deploy/config#pixiv](https://docs.rsshub.app/deploy/config#pixiv)"
-            }
-          ],
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false,
-          "nsfw": true
-        },
-        "radar": [
-          {
-            "title": "User Novels (簡介 Basic info)",
-            "source": [
-              "www.pixiv.net/users/:id/novels",
-              "www.pixiv.net/users/:id",
-              "www.pixiv.net/en/users/:id/novels",
-              "www.pixiv.net/en/users/:id"
-            ],
-            "target": "/user/novels/:id"
-          },
-          {
-            "title": "User Novels (全文 Full text)",
-            "source": [
-              "www.pixiv.net/users/:id/novels",
-              "www.pixiv.net/users/:id",
-              "www.pixiv.net/en/users/:id/novels",
-              "www.pixiv.net/en/users/:id"
-            ],
-            "target": "/user/novels/:id/true"
-          }
-        ],
-        "name": "User Novels",
-        "maintainers": [
-          "TonyRL",
-          "SnowAgar25"
-        ],
-        "description": "| 小說類型 Novel Type | full\\_content | PIXIV\\_REFRESHTOKEN | 返回內容 Content |\n| ------------------- | ------------- | ------------------- | ---------------- |\n| Non R18             | false         | 不需要 Not Required | 簡介 Basic info  |\n| Non R18             | true          | 不需要 Not Required | 全文 Full text   |\n| R18                 | false         | 需要 Required       | 簡介 Basic info  |\n| R18                 | true          | 需要 Required       | 全文 Full text   |\n\nDefault value for `full_content` is `false` if not specified.\n\nExample:\n\n- `/pixiv/user/novels/79603797` → 簡介 Basic info\n- `/pixiv/user/novels/79603797/true` → 全文 Full text",
-        "location": "novels.ts",
-        "module": () => import('@/routes/pixiv/novels.ts')
-      }
-    },
-    "apiRoutes": {},
-    "name": "pixiv",
-    "url": "www.pixiv.net",
-    "lang": "ja"
   },
   "youtube": {
     "routes": {
