@@ -1107,6 +1107,7 @@ export type RoutePath =
   | `/esquirehk/tag/:id?`
   | `/etherscan/transactions/:address`
   | `/etoland/:bo_table`
+  | `/eurogamer/:category?`
   | `/europapress/:category?`
   | `/europechinese/latest`
   | `/eventbrite/:region/:eventType?/:includePromoted?`
@@ -1121,6 +1122,7 @@ export type RoutePath =
   | `/f-droid/apprelease/:app`
   | `/f95zone/post/:thread/:postId`
   | `/f95zone/thread/:thread`
+  | `/facebook/page/:id`
   | `/famitsu/category/:category?`
   | `/fanbox/:creator`
   | `/fanfou/favorites/:uid`
@@ -1808,7 +1810,6 @@ export type RoutePath =
   | `/inspirehep/authors/:id`
   | `/inspirehep/literature/:q`
   | `/instagram/:category/:key`
-  | `/instagram/2/:category/:key`
   | `/instructables/projects/:category?`
   | `/inuki-ichiba/rent/:pref?`
   | `/investor/:id{.+}?`
@@ -3637,6 +3638,8 @@ export type RoutePath =
   | `/wuzhongmuseum/exhibition/:type?`
   | `/wyzxwk/article/:id?`
   | `/wzbc/:type?`
+  | `/wzbwg/news/:type`
+  | `/wzbwg/zhanlan/specialexhibition`
   | `/wzu/news/:type?`
   | `/x-mol/news/:tag?`
   | `/x-mol/paper/:type/:magazine`
